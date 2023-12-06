@@ -15,15 +15,15 @@ public class ProductController {
   }
 
   public void deleteProduct(Integer id){
-
+    //todo
   }
 
   public void removeFromCategory(Integer id, Integer oldCategoryId){
-
+    //todo
   }
 
   public void addToCategory(Integer id, Integer newCategoryId){
-
+    //todo
   }
 
   public Set<IProduct> getProducts(Integer itemId){
@@ -33,6 +33,4 @@ public class ProductController {
     }
     return ret_val;
   }
-
-
 }

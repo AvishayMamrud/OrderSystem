@@ -1,5 +1,5 @@
 package main.DependencyInverse;
 
 public interface INotifier {
-    boolean notify(String msg);
+  boolean notify(String msg);
 }

@@ -4,17 +4,17 @@ import main.Catalog.Product;
 import main.Utilities.Packaging;
 
 public class OrderedProduct {
-    private final Product product;
-    private int amount;
-    private Packaging packaging;
+  private final Product product;
+  private int amount;
+  private Packaging packaging;
 
-    public OrderedProduct(Product product, int amount, Packaging packaging) {
-        this.product = product;
-        this.amount = amount;
-        this.packaging = packaging;
-    }
+  public OrderedProduct(Product product, int amount, Packaging packaging) {
+    this.product = product;
+    this.amount = amount;
+    this.packaging = packaging;
+  }
 
-    public Packaging getPackaging(){
-        return packaging;
-    }
+  public Packaging getPackaging(){
+    return packaging;
+  }
 }

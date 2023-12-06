@@ -1,6 +1,6 @@
 package main.Utilities;
 
 public enum ItemType {
-    CATEGORY,
-    PRODUCT
+  CATEGORY,
+  PRODUCT
 }
