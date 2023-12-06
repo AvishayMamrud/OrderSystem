@@ -19,4 +19,8 @@ public abstract class IProduct {
     }
 
     public abstract Set<Integer> getItemIDs();
+
+    public String getName() {
+        return name;
+    }
 }

@@ -20,4 +20,9 @@ public class Packaging {
         }
         return false;
     }
+
+    @Override
+    public String toString(){
+        return "%s - %d %s".formatted(name.toString().toLowerCase(), quantity, units.toString().toLowerCase());
+    }
 }
