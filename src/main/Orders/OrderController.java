@@ -19,6 +19,7 @@ public class OrderController {
     this.nexOrderID = nextOrderID;
   }
   public void addProductToOrder(Integer storeID, Product product, int amount, Packaging packaging){
+    isValidStoreID(storeID);
     Order order = activeOrders.get(storeID);
     if(order == null){
       activeOrders.put(storeID, new Order(nexOrderID++, storeID));
@@ -26,7 +27,8 @@ public class OrderController {
     }
     order.addProduct(product, amount, packaging);
   }
-  public boolean removeProductFromOrder(Integer storeID, Product product, int amount, Packaging packaging){
+  public boolean removeProductFromOrder(Integer storeID, Product product, Packaging packaging){
+    isValidStoreID(storeID);
     Order order = activeOrders.get(storeID);
     if(order != null){
       return order.removeProduct(product, packaging);
@@ -34,6 +36,7 @@ public class OrderController {
     return false;
   }
   public void submitOrder(Integer storeID){
+    isValidStoreID(storeID);
     Order order = activeOrders.get(storeID);
     if(order != null){
       order.submitOrder();
@@ -42,6 +45,7 @@ public class OrderController {
     }
   }
   private void addCompletedOrder(Integer storeID, Order order) {
+    isValidStoreID(storeID);
     List<Order> orders = completedOrders.get(storeID);
     if(orders == null){
       completedOrders.put(storeID, new ArrayList<>());
@@ -50,6 +54,7 @@ public class OrderController {
     orders.add(order);
   }
   public void closeOrder(Integer storeID, Order order){
+    isValidStoreID(storeID);
     List<Order> orders = completedOrders.get(storeID);
     if(orders != null){
       Order order1 = orders.stream().filter(x->x.ID==order.ID).findFirst().orElse(null);
@@ -58,5 +63,9 @@ public class OrderController {
         order1.closeOrder();
       }
     }
+  }
+  private void isValidStoreID(Integer storeId) {
+    if(storeId == null || storeId < 0)
+      throw new IllegalArgumentException("storeID expected to be greater than 0. actual - %s.".formatted(storeId));
   }
 }
